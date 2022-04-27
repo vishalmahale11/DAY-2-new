@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Button</title>
+</head>
+
+<style>
+    #inc{
+        border: 0px;
+        padding: 20px 30px 20px 30px;
+        background-color: blue;
+        color: aliceblue;
+        border-radius: 20px;
+        cursor: pointer;
+        
+    }
+    button:hover{
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        
+    }
+    #dec{
+        border: 0px;
+        padding: 20px 30px 20px 30px;
+        background-color: red;
+        color: aliceblue;
+        border-radius: 20px;
+        cursor: pointer;
+       
+    }
+</style>
+
+<body>
+    <h1></h1>
+    <button id="inc">Increament</button>
+    <button id="dec">Decreament</button>
+</body>
+</html>
+<script>
+     var count=JSON.parse(localStorage.getItem("counter")) || 0;
+
+    document.querySelector("#inc").addEventListener("click",myincfun)
+   function myincfun(){
+    count++;
+    document.querySelector("h1").innerText=count;
+    localStorage.setItem("counter",count)
+   }
+
+
+
+
+   document.querySelector("#dec").addEventListener("click",mydecfun)
+   function mydecfun(){
+       count--;
+       document.querySelector("h1").innerText=count
+       localStorage.setItem("counter",count)
+   }
+
+</script>
