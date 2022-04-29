@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+</head>
+<style>
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        margin-top: 70px;
+    }
+    #email{
+        height:50px;
+        width: 30%;
+    }
+    #hello{
+        height: 50px;
+        width: 30%;
+    }
+    img{
+        margin-left: 700px;
+        margin-bottom: -10px;
+    }
+    h2{
+        text-align: center;
+        margin-bottom: -60px;
+    }
+    form input:nth-child(3){
+        height: 50px;
+        width: 10%;
+    }
+
+   
+</style>
+<body>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="masailogo">
+    <h2>Log In</h2>
+    <form id="form">
+        <input id="email" type="text" placeholder="Enter Your Reg Email">
+        <input id="hello" type="password" placeholder="Enter Your Password">
+        <input type="submit" value="Log In">
+    </form>
+
+
+
+    
+</body>
+</html>
+
+<script>
+document.querySelector("#form").addEventListener("submit",myfun)
+    var formarr=JSON.parse(localStorage.getItem("formdata"))
+
+    function myfun(){
+        event.preventDefault()
+
+        if(formarr==formarr.a && formarr==formarr.b)
+        {
+            alert("Credentials are matched")
+        }
+        else{
+            alert("Credentials are not matched")
+        }
+
+    }
+</script>

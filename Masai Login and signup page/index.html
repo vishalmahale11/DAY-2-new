@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Page</title>
+</head>
+<style>
+    #navbar {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #navbar>div {
+        cursor: pointer;
+        background-color: burlywood;
+        color: black;
+        font-size: x-large;
+        border-radius: 20px;
+        padding: 10px 20px 10px 20px;
+        margin-left: 20px;
+
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 20px;
+    }
+
+    #name {
+        height: 50px;
+        width: 30%;
+    }
+
+    #email {
+        height: 50px;
+        width: 30%;
+    }
+
+    #pass {
+        height: 50px;
+        width: 30%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        /* margin-top: 70px; */
+    }
+
+    form input {
+        width: 350px;
+        height: 50px;
+        border-radius: 5px;
+        padding: 10 15px;
+    }
+
+    img {
+        margin-left: 700px;
+        margin-bottom: -10px;
+    }
+
+    form input:nth-child(4) {
+        color: white;
+        background-color: cadetblue;
+    }
+</style>
+
+<body>
+    <div id="navbar">
+        <div><a href="index.html">Sign-up</a></div>
+        <div><a href="login.html">Log-in</a></div>
+    </div>
+
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="masailogo">
+    <h2>Sign up</h2>
+    <form id="form">
+        <input id="name" type="text" placeholder="Enter your Full Name">
+        <input id="email" type="text" placeholder="Enter Email">
+        <input id="pass" type="password" placeholder="Enter Password">
+        <input type="submit" value="SIGN UP">
+    </form>
+</body>
+
+</html>
+
+<script>
+    document.querySelector("#form").addEventListener("submit", myfun)
+    var formarr = JSON.parse(localStorage.getItem(formarr)) || [];
+
+    function myfun() {
+        event.preventDefault();
+
+        var a = document.querySelector("#name").value;
+        a.innerText = a
+
+        var b = document.querySelector("#email").value;
+        b.innerText = b;
+
+        var c = document.querySelector("#pass").value;
+        c.innerText = c;
+
+        var formobj = {
+            Name: a,
+            Email: b,
+            password: c,
+        }
+
+        formarr.push(formobj);
+        localStorage.setItem("formdata", JSON.stringify(formarr));
+
+    }
+
+</script>
