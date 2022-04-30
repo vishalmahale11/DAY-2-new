@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart</title>
+</head>
+<style>
+    #box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(1, auto);
+        gap: 10px;
+        margin: auto;
+        width: 80%;
+        margin-top: 100px;
+    }
+
+    #box>div {
+        border: 1px solid rgb(233, 230, 230);
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    }
+
+    img {
+        height: 60%;
+        width: 100%;
+    }
+
+    h3 {
+        margin-left: 20px;
+    }
+
+    h3+p {
+
+        margin-left: 20px;
+    }
+
+    h1 {
+        margin-left: 20px;
+    }
+    button {
+        margin-left:100px ;
+        border: 0px;
+        color: white;
+        background-color: black;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px 10px 10px 10px;
+    }
+</style>
+
+<body>
+    <h1>My Cart</h1>
+    <div id="box"></div>
+</body>
+
+</html>
+
+<script>
+
+    var a = JSON.parse(localStorage.getItem("cartdata")) || []
+
+    displaydata(a)
+
+    function displaydata(z) {
+        z.map(function (el, index) {
+            var bo = document.createElement("div")
+
+            var a = document.createElement("img")
+            a.setAttribute("src", el.image_url)
+
+            var b = document.createElement("h3")
+            b.innerText = el.name;
+
+            var c = document.createElement("p")
+            c.innerText = el.price;
+
+            var d = document.createElement("button")
+            d.innerText = "Remove-Item";
+
+            d.addEventListener("click", function () {
+                removeItem(el, index)
+            })
+
+            bo.append(a, b, c, d);
+            document.querySelector("#box").append(bo);
+        })
+
+
+    }
+
+    function removeItem(el,index) {
+        a.splice(index, 1)
+        localStorage.setItem("cartdata", JSON.stringify(a));
+        window.location.reload()
+    }
+
+
+</script>
