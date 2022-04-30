@@ -96,7 +96,7 @@
 
 <script>
     document.querySelector("#form").addEventListener("submit", myfun)
-    var formarr = JSON.parse(localStorage.getItem(formarr)) || [];
+    var formarr = JSON.parse(localStorage.getItem("formdata")) || [];
 
     function myfun() {
         event.preventDefault();

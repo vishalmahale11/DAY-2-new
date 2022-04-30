@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,39 +8,43 @@
     <title>Log In</title>
 </head>
 <style>
-    form{
+    form {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
         margin-top: 70px;
     }
-    #email{
-        height:50px;
-        width: 30%;
-    }
-    #hello{
+
+    #email {
         height: 50px;
         width: 30%;
     }
-    img{
+
+    #hello {
+        height: 50px;
+        width: 30%;
+    }
+
+    img {
         margin-left: 700px;
         margin-bottom: -10px;
     }
-    h2{
+
+    h2 {
         text-align: center;
         margin-bottom: -60px;
     }
-    form input:nth-child(3){
+
+    form input:nth-child(3) {
         height: 50px;
         width: 10%;
     }
-
-   
 </style>
+
 <body>
     <img src="https://sso.masaischool.com/brand_dark.svg" alt="masailogo">
-    <h2>Log In</h2>
+    <div><a href="index.html">Sign-up</a></div>
     <form id="form">
         <input id="email" type="text" placeholder="Enter Your Reg Email">
         <input id="hello" type="password" placeholder="Enter Your Password">
@@ -48,24 +53,41 @@
 
 
 
-    
+
 </body>
+
 </html>
 
 <script>
-document.querySelector("#form").addEventListener("submit",myfun)
-    var formarr=JSON.parse(localStorage.getItem("formdata"))
 
-    function myfun(){
+    
+
+
+
+
+
+    var form = document.querySelector("#form")
+    var formarr = JSON.parse(localStorage.getItem("formdata"));
+    
+    
+    form.addEventListener("submit", function (event) {
         event.preventDefault()
 
-        if(formarr==formarr.a && formarr==formarr.b)
-        {
-            alert("Credentials are matched")
-        }
-        else{
-            alert("Credentials are not matched")
+        var data = {
+            email: document.querySelector("#email").value,
+            pass: document.querySelector("#hello").value,
         }
 
-    }
+        if (formarr == null) {
+            alert("Please create an account");
+        }
+        else if (formarr.Email == data.email && formarr.password == data.pass) {
+            alert("Log-In Succesfull")
+           localStorage.setItem("signin",JSON.stringify("formdata"))
+        }
+        else{
+            alert("Log-in Successful")
+        }
+        
+    })
 </script>
