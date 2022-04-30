@@ -45,7 +45,7 @@
     }
 
     button {
-        margin-left:100px ;
+        margin-left: 10px;
         border: 0px;
         color: white;
         background-color: black;
@@ -65,10 +65,9 @@
         margin-right: 30px;
 
     }
-
-    h1 {
-        margin-left: 20px;
-    }
+    h1{
+    margin-left: 20px;
+  }
 </style>
 
 <body>
@@ -335,7 +334,7 @@
         },
     ]
 
-    var a = JSON.parse(localStorage.getItem("cartdata")) || []
+    var a= JSON.parse(localStorage.getItem("cartdata"))||[]
 
     displaydata(mensdata)
 
@@ -366,10 +365,10 @@
 
     }
 
-    function cartfun(el) {
-        a.push(el)
-        localStorage.setItem("cartdata", JSON.stringify(a));
-    }
+    function cartfun(el){
+    a.push(el)
+    localStorage.setItem("cartdata",JSON.stringify(a));
+  }
 
 
 </script>

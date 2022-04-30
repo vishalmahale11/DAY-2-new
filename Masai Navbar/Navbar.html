@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reebok Navbar</title>
+</head>
+<style>
+    .headingbox {
+        height: 50px;
+        width: 95%;
+        /* border: 1px solid; */
+        margin-top: 10px;
+        margin: auto;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+
+    }
+
+    #imgtag {
+        margin-left: 50px;
+
+
+    }
+
+    .smallbox {
+        height: 100%;
+        width: 60%;
+        display: flex;
+        flex-direction: row-reverse;
+        margin-right: 100px;
+        justify-content: space-around;
+        font-size: large;
+        background-color: rgb(125, 239, 239);
+        color: black;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        font-size: larger;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="headingbox">
+        <div id="imgtag">
+            <img src="data:image/png;base64,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"
+                alt="logo">
+        </div>
+        <div class="smallbox">
+
+            <p><a href="login.html">Login</a></p>
+            <p><a href="signup.html">Sign up</a></p>
+            <p><a href="womens.html">Womens</a></p>
+            <p><a href="mens.html">Mens</a></p>
+
+
+        </div>
+    </div>
+
+</html>
