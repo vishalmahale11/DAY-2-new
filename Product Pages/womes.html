@@ -65,7 +65,8 @@
     text-decoration: none;
     color: cadetblue;
   }
-  h1{
+
+  h1 {
     margin-left: 20px;
   }
 </style>
@@ -74,6 +75,15 @@
   <h1>Womens Page</h1>
   <h1><a href="mens.html">Mens Page</a></h1>
   <h2><a href="addtocart.html">My Cart</a></h2>
+
+
+  <select id="sortprice" onchange="sortbypricefun()">
+    <option>Sort By price</option>
+    <option value="high">High</option>
+    <option value="low">Low</option>
+  </select>
+
+
   <div id="container">
 
   </div>
@@ -539,7 +549,27 @@
     },
   ];
 
-    var a= JSON.parse(localStorage.getItem("cartdata"))||[]
+  var a = JSON.parse(localStorage.getItem("cartdata")) || []
+
+  // sort function for price
+
+  function sortbypricefun() {
+    var selected = document.querySelector("#sortprice").value;
+    if (selected == "high") {
+      womensData.sort(function (a, b) {
+        return b.price - a.price
+      })
+      console.log(womensData)
+      displaydata(womensData)
+    }
+    if (selected == "low") {
+      womensData.sort(function (a, b) {
+        return a.price - b.price
+      })
+      console.log(womensData);
+      displaydata(womensData)
+    }
+  }
 
   displaydata(womensData)
 
@@ -570,9 +600,9 @@
     })
   }
 
-  function cartfun(el){
+  function cartfun(el) {
     a.push(el)
-    localStorage.setItem("cartdata",JSON.stringify(a));
+    localStorage.setItem("cartdata", JSON.stringify(a));
   }
 
 

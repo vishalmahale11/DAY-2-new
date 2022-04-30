@@ -65,15 +65,21 @@
         margin-right: 30px;
 
     }
-    h1{
-    margin-left: 20px;
-  }
+
+    h1 {
+        margin-left: 20px;
+    }
 </style>
 
 <body>
     <h1>Mens Page</h1>
     <h1><a href="womes.html">Womens Page</a></h1>
     <h2><a href="addtocart.html">My Cart</a></h2>
+
+
+
+
+
     <div id="container"></div>
 </body>
 
@@ -334,7 +340,8 @@
         },
     ]
 
-    var a= JSON.parse(localStorage.getItem("cartdata"))||[]
+    var a = JSON.parse(localStorage.getItem("cartdata")) || []
+
 
     displaydata(mensdata)
 
@@ -365,10 +372,10 @@
 
     }
 
-    function cartfun(el){
-    a.push(el)
-    localStorage.setItem("cartdata",JSON.stringify(a));
-  }
+    function cartfun(el) {
+        a.push(el)
+        localStorage.setItem("cartdata", JSON.stringify(a));
+    }
 
 
 </script>
