@@ -40,8 +40,9 @@
     h1 {
         margin-left: 20px;
     }
+
     button {
-        margin-left:100px ;
+        margin-left: 100px;
         border: 0px;
         color: white;
         background-color: black;
@@ -63,6 +64,19 @@
 <script>
 
     var a = JSON.parse(localStorage.getItem("cartdata")) || []
+    var totalprice = JSON.parse(localStorage.getItem("totalprice")) || 0;
+
+    displayprice(totalprice)
+
+    function displayprice(x){
+     
+        var a=document.createElement("h2")
+        a.innerText=x;
+        console.log(x);
+        document.querySelector("body").append("Total Price:-",a);
+
+    }
+
 
     displaydata(a)
 
@@ -93,7 +107,7 @@
 
     }
 
-    function removeItem(el,index) {
+    function removeItem(el, index) {
         a.splice(index, 1)
         localStorage.setItem("cartdata", JSON.stringify(a));
         window.location.reload()

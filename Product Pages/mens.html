@@ -345,32 +345,34 @@
     ]
 
     var a = JSON.parse(localStorage.getItem("cartdata")) || []
+    var totalprice =JSON.parse(localStorage.getItem("totalprice")) || 0;
 
 
+        // sort function by price
 
-// sort function by price
-
-    function sortbypricefun() {
-        var selected = document.querySelector("#sortprice").value;
-        if (selected == "high") {
-            mensdata.sort(function (a,b) {
-                return b.price - a.price
-            })
-            console.log(mensdata)
-            displaydata(mensdata)
+        function sortbypricefun() {
+            var selected = document.querySelector("#sortprice").value;
+            if (selected == "high") {
+                mensdata.sort(function (a, b) {
+                    return b.price - a.price
+                })
+                console.log(mensdata)
+                displaydata(mensdata)
+            }
+            if (selected == "low") {
+                mensdata.sort(function (a, b) {
+                    return a.price - b.price
+                })
+                console.log(mensdata);
+                displaydata(mensdata)
+            }
         }
-        if (selected == "low") {
-            mensdata.sort(function (a,b) {
-                return a.price - b.price
-            })
-            console.log(mensdata);
-            displaydata(mensdata)
-        }
-    }
 
     displaydata(mensdata)
 
     function displaydata(x) {
+        document.querySelector("#container").innerHTML = "";
+
         mensdata.map(function (el) {
             var box = document.createElement("div");
 
@@ -398,7 +400,12 @@
 
     function cartfun(el) {
         a.push(el)
+        var total = a.reduce(function (acc, el) {
+            return acc + Number(el.price)
+        }, 0)
+        console.log(total);
         localStorage.setItem("cartdata", JSON.stringify(a));
+        localStorage.setItem("totalprice", JSON.stringify(total));
     }
 
 

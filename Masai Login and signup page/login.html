@@ -73,14 +73,18 @@
 
         if (formarr == null) {
             alert("Please create an account");
+            
         }
         else if (formarr.Email == data.email && formarr.password == data.pass) {
             alert("Log-In Succesfull")
            localStorage.setItem("signin",JSON.stringify("formdata"))
+           window.location.href="index.html"
+
         }
-        else{
-            alert("Log-in Successful")
-        }
+        // else{
+        //     alert("Log-in Successful")
+
+        // }
         
     })
 </script>
